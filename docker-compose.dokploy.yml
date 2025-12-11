@@ -1,8 +1,6 @@
 services:
   backend:
     build: ./backend
-    networks:
-      - homelab
     volumes:
       - ./data:/app/data
     environment:
@@ -17,18 +15,11 @@ services:
 
   frontend:
     build: ./frontend
-    networks:
-      - homelab
+    ports:
+      - "3333:3000"
     depends_on:
       - backend
     restart: unless-stopped
-    labels:
-      - "traefik.docker.network=homelab_homelab"
 
 volumes:
   data:
-
-networks:
-  homelab:
-    name: homelab_homelab
-    external: true
