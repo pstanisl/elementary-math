@@ -22,6 +22,8 @@ services:
     depends_on:
       - backend
     restart: unless-stopped
+    labels:
+      - "traefik.docker.network=homelab_homelab"
 
 volumes:
   data:
