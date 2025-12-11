@@ -1,0 +1,124 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 200px);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.title {
+  font-size: var(--font-size-xlarge);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.stats {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.statItem {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+}
+
+.loading {
+  text-align: center;
+  font-size: var(--font-size-large);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-xl);
+}
+
+.problemArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+}
+
+/* Badge celebration modal */
+.badgeOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.badgeModal {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+  text-align: center;
+  max-width: 400px;
+  margin: var(--spacing-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.badgeIcon {
+  font-size: 80px;
+  margin-bottom: var(--spacing-md);
+}
+
+.badgeModal h2 {
+  color: var(--color-success);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.badgeModal h3 {
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.badgeModal p {
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.badgeButton {
+  background-color: var(--color-success);
+  color: white;
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  border-radius: var(--border-radius-sm);
+}
+
+.badgeButton:hover {
+  background-color: #43a047;
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .statItem {
+    font-size: var(--font-size-small);
+  }
+}

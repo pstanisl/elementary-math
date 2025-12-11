@@ -1,0 +1,128 @@
+.inlineContainer,
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.problemRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.equation {
+  font-size: var(--font-size-xlarge);
+  font-family: 'Courier New', monospace;
+}
+
+.inlineInput {
+  font-size: var(--font-size-xlarge);
+  font-family: 'Courier New', monospace;
+  width: 150px;
+  text-align: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 3px solid var(--color-primary);
+  border-radius: var(--border-radius-sm);
+}
+
+.inlineInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.3);
+}
+
+/* Column notation styles */
+.columnProblem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: 'Courier New', monospace;
+  font-size: var(--font-size-xlarge);
+  background-color: var(--color-surface);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.columnRow {
+  display: flex;
+  align-items: center;
+  min-height: 1.5em;
+}
+
+.operatorSpace {
+  width: 1.5ch;
+}
+
+.operator {
+  width: 1.5ch;
+  text-align: center;
+}
+
+.number {
+  white-space: pre;
+  letter-spacing: 0.1em;
+}
+
+.columnLine {
+  height: 3px;
+  background-color: var(--color-text);
+  margin: var(--spacing-xs) 0;
+}
+
+.columnInput {
+  font-size: var(--font-size-xlarge);
+  font-family: 'Courier New', monospace;
+  text-align: right;
+  padding: var(--spacing-xs);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-sm);
+  letter-spacing: 0.1em;
+}
+
+.columnInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.3);
+}
+
+.submitButton {
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  min-width: 200px;
+  transition: all 0.2s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .equation {
+    font-size: var(--font-size-large);
+  }
+
+  .inlineInput {
+    font-size: var(--font-size-large);
+    width: 120px;
+  }
+
+  .columnProblem {
+    font-size: var(--font-size-large);
+  }
+
+  .columnInput {
+    font-size: var(--font-size-large);
+  }
+}

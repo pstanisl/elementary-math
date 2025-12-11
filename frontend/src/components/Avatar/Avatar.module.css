@@ -1,0 +1,42 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.small {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+}
+
+.medium {
+  width: 64px;
+  height: 64px;
+  font-size: 28px;
+}
+
+.large {
+  width: 120px;
+  height: 120px;
+  font-size: 48px;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clickable:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.clickable:active {
+  transform: scale(0.98);
+}
