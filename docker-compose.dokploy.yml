@@ -1,6 +1,8 @@
 services:
   backend:
     build: ./backend
+    networks:
+      - homelab
     volumes:
       - ./data:/app/data
     environment:
@@ -22,6 +24,8 @@ services:
 
   frontend:
     build: ./frontend
+    networks:
+      - homelab
     depends_on:
       - backend
     restart: unless-stopped
@@ -36,6 +40,6 @@ volumes:
   data:
 
 networks:
-  default:
-    name: dokploy-network
+  homelab:
+    name: homelab_homelab
     external: true
