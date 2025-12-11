@@ -32,6 +32,11 @@
   border: none;
   font-size: 24px;
   padding: var(--spacing-xs) var(--spacing-sm);
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--color-text);
   cursor: pointer;
   border-radius: var(--border-radius-sm);
@@ -79,5 +84,12 @@
 
   .main {
     padding: var(--spacing-md);
+  }
+}
+
+/* Touch-friendly styles for tablets */
+@media (pointer: coarse) {
+  .title {
+    font-size: var(--font-size-large-tablet);
   }
 }

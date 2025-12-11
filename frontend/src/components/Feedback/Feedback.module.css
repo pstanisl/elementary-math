@@ -115,3 +115,26 @@
 .solutionEquation strong {
   color: var(--color-success);
 }
+
+/* Touch-friendly styles for tablets */
+@media (pointer: coarse) {
+  .message {
+    font-size: var(--font-size-xlarge-tablet);
+  }
+
+  .hint {
+    font-size: var(--font-size-base-tablet);
+  }
+
+  .continueButton,
+  .tryAgainButton,
+  .showSolutionButton {
+    min-height: var(--touch-target-min);
+    font-size: var(--font-size-base-tablet);
+    padding: var(--spacing-md) var(--spacing-xl);
+  }
+
+  .solutionEquation {
+    font-size: var(--font-size-xlarge-tablet);
+  }
+}

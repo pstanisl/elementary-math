@@ -122,3 +122,20 @@
     font-size: var(--font-size-small);
   }
 }
+
+/* Touch-friendly styles for tablets */
+@media (pointer: coarse) {
+  .title {
+    font-size: var(--font-size-xlarge-tablet);
+  }
+
+  .statItem {
+    font-size: var(--font-size-base-tablet);
+    padding: var(--spacing-sm) var(--spacing-lg);
+  }
+
+  .badgeButton {
+    min-height: var(--touch-target-min);
+    font-size: var(--font-size-large-tablet);
+  }
+}

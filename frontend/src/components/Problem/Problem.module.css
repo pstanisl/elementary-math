@@ -126,3 +126,33 @@
     font-size: var(--font-size-large);
   }
 }
+
+/* Touch-friendly styles for tablets */
+@media (pointer: coarse) {
+  .equation {
+    font-size: var(--font-size-xlarge-tablet);
+  }
+
+  .inlineInput {
+    font-size: var(--font-size-xlarge-tablet);
+    min-height: var(--touch-target-min);
+    width: 160px;
+  }
+
+  .columnProblem {
+    font-size: var(--font-size-xlarge-tablet);
+    padding: var(--spacing-xl);
+  }
+
+  .columnInput {
+    font-size: var(--font-size-xlarge-tablet);
+    min-height: var(--touch-target-min);
+    padding: var(--spacing-sm);
+  }
+
+  .submitButton {
+    min-height: 48px;
+    font-size: var(--font-size-large-tablet);
+    padding: var(--spacing-md) var(--spacing-xl);
+  }
+}

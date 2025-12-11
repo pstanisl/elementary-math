@@ -27,6 +27,15 @@
   --border-radius-sm: 8px;
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.15);
+
+  /* Touch-friendly sizing */
+  --touch-target-min: 44px;
+  --spacing-touch: 12px;
+
+  /* Tablet font sizes (~10% larger for readability at arm's length) */
+  --font-size-base-tablet: 20px;
+  --font-size-large-tablet: 26px;
+  --font-size-xlarge-tablet: 36px;
 }
 
 * {
@@ -86,4 +95,21 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Touch-friendly styles for tablets and touch devices */
+@media (pointer: coarse) {
+  body {
+    font-size: var(--font-size-base-tablet);
+  }
+
+  button {
+    min-height: var(--touch-target-min);
+    padding: var(--spacing-touch) var(--spacing-md);
+  }
+
+  input {
+    min-height: var(--touch-target-min);
+    padding: var(--spacing-touch) var(--spacing-md);
+  }
 }

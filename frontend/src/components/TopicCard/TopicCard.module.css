@@ -98,3 +98,17 @@
 .practiceButton:hover {
   background-color: var(--color-primary-dark);
 }
+
+/* Touch-friendly styles for tablets */
+@media (pointer: coarse) {
+  .learnButton,
+  .practiceButton {
+    min-height: 44px;
+    padding: var(--spacing-touch) var(--spacing-md);
+    font-size: var(--font-size-base-tablet);
+  }
+
+  .title {
+    font-size: var(--font-size-large-tablet);
+  }
+}
