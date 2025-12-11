@@ -4,7 +4,7 @@ services:
     networks:
       - app
     volumes:
-      - ./data:/app/data
+      - math-data:/app/data
     environment:
       - DATABASE_URL=sqlite:///./data/elementary_math.db
     restart: unless-stopped
@@ -29,4 +29,4 @@ networks:
   app:
 
 volumes:
-  data:
+  math-data:
