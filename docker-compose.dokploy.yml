@@ -14,14 +14,6 @@ services:
       timeout: 5s
       retries: 5
       start_period: 5s
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.elemmath-api.rule=Host(`math.raspberrypi5.internal`) && PathPrefix(`/be`)"
-      - "traefik.http.routers.elemmath-api.entrypoints=web"
-      - "traefik.http.routers.elemmath-api.service=elemmath-api-svc"
-      - "traefik.http.services.elemmath-api-svc.loadbalancer.server.port=8000"
-      - "traefik.http.middlewares.elemmath-strip.stripprefix.prefixes=/be"
-      - "traefik.http.routers.elemmath-api.middlewares=elemmath-strip"
 
   frontend:
     build: ./frontend
@@ -30,13 +22,6 @@ services:
     depends_on:
       - backend
     restart: unless-stopped
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.elemmath-web.rule=Host(`math.raspberrypi5.internal`)"
-      - "traefik.http.routers.elemmath-web.entrypoints=web"
-      - "traefik.http.routers.elemmath-web.service=elemmath-web-svc"
-      - "traefik.http.services.elemmath-web-svc.loadbalancer.server.port=80"
-      - "traefik.http.routers.elemmath-web.priority=1"
 
 volumes:
   data:
