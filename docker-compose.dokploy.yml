@@ -1,11 +1,6 @@
-version: '3.8'
-
 services:
   backend:
     build: ./backend
-    container_name: elementary-math-backend
-    expose:
-      - "8000"
     volumes:
       - ./data:/app/data
     environment:
@@ -27,9 +22,6 @@ services:
 
   frontend:
     build: ./frontend
-    container_name: elementary-math-frontend
-    expose:
-      - "80"
     depends_on:
       - backend
     restart: unless-stopped
