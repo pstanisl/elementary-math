@@ -1,6 +1,8 @@
 services:
   backend:
     build: ./backend
+    networks:
+      - app
     volumes:
       - ./data:/app/data
     environment:
@@ -15,11 +17,16 @@ services:
 
   frontend:
     build: ./frontend
+    networks:
+      - app
     ports:
       - "3333:3000"
     depends_on:
       - backend
     restart: unless-stopped
+
+networks:
+  app:
 
 volumes:
   data:
