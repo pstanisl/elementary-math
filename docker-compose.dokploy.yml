@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: elementary-math-backend
+    expose:
+      - "8000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - DATABASE_URL=sqlite:///./data/elementary_math.db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health', timeout=5)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.math-backend.rule=Host(`math.raspberrypi5.internal`) && PathPrefix(`/be`)"
+      - "traefik.http.routers.math-backend.entrypoints=web"
+      - "traefik.http.services.math-backend.loadbalancer.server.port=8000"
+      - "traefik.http.middlewares.math-backend-strip.stripprefix.prefixes=/be"
+      - "traefik.http.routers.math-backend.middlewares=math-backend-strip"
+
+  frontend:
+    build: ./frontend
+    container_name: elementary-math-frontend
+    expose:
+      - "80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.math-frontend.rule=Host(`math.raspberrypi5.internal`)"
+      - "traefik.http.routers.math-frontend.entrypoints=web"
+      - "traefik.http.services.math-frontend.loadbalancer.server.port=80"
+      - "traefik.http.routers.math-frontend.priority=1"
+
+volumes:
+  data:
+
+networks:
+  default:
+    name: dokploy-network
+    external: true
