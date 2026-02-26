@@ -19,14 +19,24 @@ services:
     build: ./frontend
     networks:
       - app
+      - dokploy-network
     ports:
       - "3333:3000"
     depends_on:
       - backend
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=dokploy-network"
+      - "traefik.http.routers.math.rule=Host(`math.raspberrypi5.internal`)"
+      - "traefik.http.routers.math.entrypoints=websecure"
+      - "traefik.http.routers.math.tls=true"
+      - "traefik.http.services.math.loadbalancer.server.port=3000"
 
 networks:
   app:
+  dokploy-network:
+    external: true
 
 volumes:
   math-data:
